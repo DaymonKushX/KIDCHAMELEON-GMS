@@ -1,0 +1,13 @@
+Write here your change updates notes:
+
+Example:
+
+@YourName
+#NewVariables
+global._lives // @description
+#NewRooms
+Room Name // @description
+#NewObjects
+ObjectName // @description
+
+Sprites not needed!
