@@ -20,9 +20,10 @@
       <sprite>sprites\sprPlayerMask</sprite>
       <sprite>sprites\sprPlayerCrouchingMask</sprite>
       <sprite>sprites\sprPlayerIdle</sprite>
-      <sprite>sprites\sprPlayerWallkingSlopeDown</sprite>
       <sprite>sprites\sprPlayerWallkingSlopeUp</sprite>
-      <sprite>sprites\sprPlayerWallkingCrouching</sprite>
+      <sprite>sprites\sprPlayerWallkingSlopeDown</sprite>
+      <sprite>sprites\sprPlayerWallkingCrouched</sprite>
+      <sprite>sprites\sprPlayerIdleCrouched</sprite>
       <sprite>sprites\sprPlayerRolling</sprite>
       <sprite>sprites\sprPlayerJump</sprite>
       <sprite>sprites\sprPlayerSliding</sprite>
@@ -56,10 +57,25 @@
     <scripts name="Util">
       <script>scripts\create_moving_instance.gml</script>
     </scripts>
+    <scripts name="Player">
+      <script>scripts\scr_player_state_idle.gml</script>
+      <script>scripts\scr_player_state_jumping.gml</script>
+      <script>scripts\scr_player_state_falling.gml</script>
+      <script>scripts\scr_player_state_transform.gml</script>
+      <script>scripts\scr_player_state_rolling.gml</script>
+      <script>scripts\scr_player_state_damaged.gml</script>
+      <script>scripts\scr_player_state_shoot.gml</script>
+      <script>scripts\scr_player_state_slopes.gml</script>
+      <script>scripts\scr_player_state_running.gml</script>
+      <script>scripts\scr_player_get_keys.gml</script>
+      <script>scripts\scr_player_init.gml</script>
+      <script>scripts\scr_move_to_direction.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\Player</object>
+      <object>objects\parentPlayer</object>
     </objects>
     <objects name="GameObjects">
       <object>objects\objGlobal</object>
@@ -82,12 +98,35 @@
     </objects>
     <objects name="Parents">
       <object>objects\objPrtEnemy</object>
-      <object>objects\Solid</object>
+      <object>objects\parentSolid</object>
+      <object>objects\parentSlopes</object>
     </objects>
+    <object>objects\jumpToLevel</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room1</room>
     <room>rooms\room2</room>
   </rooms>
+  <constants number="18">
+    <constant name="idle">0</constant>
+    <constant name="jumping">1</constant>
+    <constant name="running">2</constant>
+    <constant name="rolling">3</constant>
+    <constant name="shooting">4</constant>
+    <constant name="transform">5</constant>
+    <constant name="damaged">6</constant>
+    <constant name="falling">7</constant>
+    <constant name="state9">8</constant>
+    <constant name="state10">9</constant>
+    <constant name="state11">10</constant>
+    <constant name="dir_down">270</constant>
+    <constant name="dir_up">90</constant>
+    <constant name="dir_left">180</constant>
+    <constant name="dir_right">0</constant>
+    <constant name="grav_normal">0.55</constant>
+    <constant name="xspeedMax">7</constant>
+    <constant name="yspeedMax">7</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

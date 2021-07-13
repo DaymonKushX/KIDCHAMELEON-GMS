@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Solid</parentName>
+  <parentName>parentSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>/// Heranca
 event_inherited();
+
+slopeRight = false;
+slopeHigh = false;
 </string>
           </argument>
         </arguments>

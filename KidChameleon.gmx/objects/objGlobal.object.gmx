@@ -54,12 +54,12 @@ if sound_exists(sndTest)
       </action>
       <action>
         <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -68,27 +68,24 @@ if sound_exists(sndTest)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ROOM CONTROL</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>GAME CONTROL</string>
+            <string>///Controles
+
+//Player1 Controles
+global.Player1KeyJump  = ord("S");
+global.Player1KeyRun   = ord("A");
+global.Player1KeyShoot = ord("D");
+global.Player1KeyDown  = vk_down;
+global.Player1KeyRight = vk_right;
+global.Player1KeyLeft  = vk_left;
+
+//Player2 Controles
+global.Player2KeyJump  = ord("U");
+global.Player2KeyRun   = ord("I");
+global.Player2KeyShoot = ord("O");
+global.Player2KeyDown  = ord("J");
+global.Player2KeyRight = ord("K");
+global.Player2KeyLeft  = ord("L");
+</string>
           </argument>
         </arguments>
       </action>
@@ -114,6 +111,82 @@ if sound_exists(sndTest)
 
 
 if keyboard_check(vk_space){game_restart();}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Player1 Controles
+global.Player1KeyJumpPressed = keyboard_check_pressed(global.Player1KeyJump);
+global.Player1KeyJumpHold = keyboard_check(global.Player1KeyJump);
+
+global.Player1KeyRunPressed = keyboard_check_pressed(global.Player1KeyRun);
+global.Player1KeyRunHold = keyboard_check(global.Player1KeyRun);
+
+global.Player1KeyShootPressed = keyboard_check_pressed(global.Player1KeyShoot);
+global.Player1KeyShootHold = keyboard_check(global.Player1KeyShoot);
+
+global.Player1KeyDownPressed = keyboard_check_pressed(global.Player1KeyDown);
+global.Player1KeyDownHold = keyboard_check(global.Player1KeyDown);
+
+global.Player1KeyRightPressed = keyboard_check_pressed(global.Player1KeyRight);
+global.Player1KeyRightHold = keyboard_check(global.Player1KeyRight);
+
+global.Player1KeyLeftPressed = keyboard_check_pressed(global.Player1KeyLeft);
+global.Player1KeyLeftHold = keyboard_check(global.Player1KeyLeft);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Player2 Controles
+global.Player2KeyJumpPressed = keyboard_check_pressed(global.Player2KeyJump);
+global.Player2KeyJumpHold = keyboard_check(global.Player2KeyJump);
+
+global.Player2KeyRunPressed = keyboard_check_pressed(global.Player2KeyRun);
+global.Player2KeyRunHold = keyboard_check(global.Player2KeyRun);
+
+global.Player2KeyShootPressed = keyboard_check_pressed(global.Player2KeyShoot);
+global.Player2KeyShootHold = keyboard_check(global.Player2KeyShoot);
+
+global.Player2KeyDownPressed = keyboard_check_pressed(global.Player2KeyDown);
+global.Player2KeyDownHold = keyboard_check(global.Player2KeyDown);
+
+global.Player2KeyRightPressed = keyboard_check_pressed(global.Player2KeyRight);
+global.Player2KeyRightHold = keyboard_check(global.Player2KeyRight);
+
+global.Player2KeyLeftPressed = keyboard_check_pressed(global.Player2KeyLeft);
+global.Player2KeyLeftHold = keyboard_check(global.Player2KeyLeft);
 </string>
           </argument>
         </arguments>
