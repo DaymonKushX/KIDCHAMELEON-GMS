@@ -3,7 +3,12 @@
 state = idle; // começa parado
 vspeed = 0;
 hspeed = 0;
+dir = 0;
+damage = false;
+damageTimer = 0;
+maxSpeed = 0;
 jumpTimer = 0;
+fallingTimer = 0;
 vInfluence = 0; 
 hInfluence = 0; 
 isCrouched = false;

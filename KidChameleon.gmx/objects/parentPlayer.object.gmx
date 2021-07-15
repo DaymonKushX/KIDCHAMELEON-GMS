@@ -32,6 +32,31 @@ scr_player_init()
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Cancela a Imunidade;
+damageTimer = 0;
+damage = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -53,6 +78,7 @@ scr_player_init()
 
 scr_player_state_slopes();
 scr_player_get_keys();
+scr_player_horizontal();
 
 // Direcoes
 dir = KeyRightHold - KeyLeftHold;
@@ -69,7 +95,7 @@ if state == jumping {scr_player_state_jumping();}
 // Rolando
 if state == rolling {scr_player_state_rolling();}
 // Damaged
-if state == damaged {scr_player_state_damaged();}
+if damage == true {scr_player_state_damaged();}
 // Atirando Machados
 if state == shooting {scr_player_state_shoot();}
 // Transformando
@@ -85,7 +111,7 @@ if state == state10 {}
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="parentSolid">
+    <event eventtype="4" ename="objPrtEnemy">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -102,11 +128,14 @@ if state == state10 {}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>state = idle;
-vspeed = 0;
-hspeed = 0;
-gravity = 0;
-move_contact_solid(-2,dir_down);
+            <string>/// Damage
+
+// Verifica se tem mais que 1 de hp e se ele não está imune
+// Se HP for maior que 1 e ele nao estiver imune, perde 1 de HP e se torna temporariamente imune
+if (global.PlayerHp &gt; 1 and !damage) { global.PlayerHp -= 1; damage = true; alarm[8]=1*room_speed;}
+
+// Se tiver somente 1 de HP e nao estiver imune o player morre...
+if (global.PlayerHp = 1 and !damage) { morto = true; alarm[8]=1;}
 </string>
           </argument>
         </arguments>

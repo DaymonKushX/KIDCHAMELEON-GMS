@@ -2,15 +2,16 @@
 
 sprite_index = sprPlayerJump;
 
+// Contador para encerrar o pulo
 jumpTimer ++
+if jumpTimer == 1 { 
+    myObject = instance_create(x,y-32,objCollisionUp);
+    myObject.myOwner = self.id;
+    myObject.depth = self.depth-1;
+    } 
+    
 if jumpTimer >= 10 {jumpTimer = 0; state = falling;}
 
-vspeed = -3 + (vInfluence);
-if !place_free(x,y+vspeed){vInfluence=0; vspeed=0; state=falling;}
-    
-if place_free(x+(dir*(maxSpeed+hInfluence)),y){x=x+(dir*(maxSpeed+hInfluence));}
-
-/*
-vInfluence => Influencia do botao de corrida sobre sobre o pulo
-hInfluence => Influencia do botao de corrida sobre sobre o pulo
-*/
+var jumpSpeed = -5; // Velocidade do pulo
+vspeed = jumpSpeed + (vInfluence);
+if !place_free(x,y+vspeed){vInfluence = 0; vspeed = 0; state = falling;}

@@ -32,6 +32,7 @@
     </sprites>
     <sprites name="Stage">
       <sprite>sprites\sprite20</sprite>
+      <sprite>sprites\sprPonte</sprite>
       <sprite>sprites\sprBoxP</sprite>
       <sprite>sprites\sprBlockBroked</sprite>
       <sprite>sprites\sprBlockBrokedAnim</sprite>
@@ -45,6 +46,8 @@
       <sprite>sprites\sprLives</sprite>
       <sprite>sprites\sprLifePoints</sprite>
     </sprites>
+    <sprite>sprites\sprite32</sprite>
+    <sprite>sprites\sprite33</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Scene">
@@ -58,24 +61,27 @@
       <script>scripts\create_moving_instance.gml</script>
     </scripts>
     <scripts name="Player">
+      <script>scripts\scr_player_init.gml</script>
+      <script>scripts\scr_player_get_keys.gml</script>
       <script>scripts\scr_player_state_idle.gml</script>
       <script>scripts\scr_player_state_jumping.gml</script>
       <script>scripts\scr_player_state_falling.gml</script>
+      <script>scripts\scr_player_state_shoot.gml</script>
       <script>scripts\scr_player_state_transform.gml</script>
       <script>scripts\scr_player_state_rolling.gml</script>
       <script>scripts\scr_player_state_damaged.gml</script>
-      <script>scripts\scr_player_state_shoot.gml</script>
       <script>scripts\scr_player_state_slopes.gml</script>
       <script>scripts\scr_player_state_running.gml</script>
-      <script>scripts\scr_player_get_keys.gml</script>
-      <script>scripts\scr_player_init.gml</script>
       <script>scripts\scr_move_to_direction.gml</script>
+      <script>scripts\scr_player_horizontal.gml</script>
+      <script>scripts\scr_player_plastic.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
+    <object>objects\objTitleVariables</object>
+    <object>objects\jumpToLevel</object>
     <objects name="Player">
       <object>objects\Player</object>
-      <object>objects\parentPlayer</object>
     </objects>
     <objects name="GameObjects">
       <object>objects\objGlobal</object>
@@ -92,22 +98,38 @@
       <object>objects\objSlope8x16Left</object>
       <object>objects\objSlope16x16Right</object>
       <object>objects\objSlope16x16Left</object>
-      <object>objects\objBoxP</object>
-      <object>objects\objBlockBroked</object>
-      <object>objects\objBrokenBlocks</object>
+      <objects name="Blocks">
+        <object>objects\objBlockPlastic</object>
+        <object>objects\objBlockBroked</object>
+        <object>objects\objBoxP</object>
+        <object>objects\objBrokenBlocks</object>
+        <object>objects\objBlockMetal</object>
+      </objects>
+      <object>objects\objPonte</object>
     </objects>
     <objects name="Parents">
+      <object>objects\parentPlayer</object>
       <object>objects\objPrtEnemy</object>
       <object>objects\parentSolid</object>
       <object>objects\parentSlopes</object>
+      <object>objects\parentBlocks</object>
     </objects>
-    <object>objects\jumpToLevel</object>
+    <objects name="Consumiveis">
+      <object>objects\objCrystals</object>
+    </objects>
+    <objects name="Enemies">
+      <object>objects\objEnemyTest</object>
+    </objects>
+    <objects name="Collisions">
+      <object>objects\objCollisionUp</object>
+      <object>objects\objCollisionDown</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room1</room>
-    <room>rooms\room2</room>
+    <room>rooms\rm_title_screen</room>
+    <room>rooms\rm_level_beta</room>
   </rooms>
-  <constants number="18">
+  <constants number="16">
     <constant name="idle">0</constant>
     <constant name="jumping">1</constant>
     <constant name="running">2</constant>
@@ -124,8 +146,6 @@
     <constant name="dir_left">180</constant>
     <constant name="dir_right">0</constant>
     <constant name="grav_normal">0.55</constant>
-    <constant name="xspeedMax">7</constant>
-    <constant name="yspeedMax">7</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

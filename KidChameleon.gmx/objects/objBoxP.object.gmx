@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>parentSolid</parentName>
+  <parentName>parentBlocks</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>isBroken = false;
-visible = true;
+            <string>event_inherited();
 </string>
           </argument>
         </arguments>
@@ -65,17 +64,26 @@ visible = true;
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>y = ystart;
+instance_create(x+(sprite_width/2),bbox_bottom,objCrystals)
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="2" enumb="1">
@@ -95,7 +103,7 @@ visible = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vspeed=1;
+            <string>vspeed=1.5;
 alarm[2]=5.5;
 </string>
           </argument>
@@ -119,9 +127,9 @@ alarm[2]=5.5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vspeed=-1;
+            <string>vspeed=-1.5;
 alarm[1]=5.5;
-instance_create(x,y,objIten);
+//instance_create(x,y,objIten);
 isBroken = false;
 </string>
           </argument>
@@ -145,27 +153,7 @@ isBroken = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if isBroken = true {
-alarm[0]=1;
-}
-
-/* 
-bbox_left e bbox_right 
-limita a colisao as bordas
-esquerda e direita do bloco,
-isso evita colisao com dois 
-blocos ao mesmo tempo
-*/
-
-
-// Verifica se o player esta collidindo abaixo do bloco
-if collision_rectangle(bbox_left, bbox_bottom,
-    bbox_right, bbox_bottom+4,Player,false,false)
-    {
-    isBroken = false
-    // Cancela o pulo do player ao colidir com o bloco
-    with other {vspeed = 0; state = "falling"}
-    }
+            <string>event_inherited();
 </string>
           </argument>
         </arguments>

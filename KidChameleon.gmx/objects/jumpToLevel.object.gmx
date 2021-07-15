@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(room2);
+            <string>room_goto(rm_level_beta);
 </string>
           </argument>
         </arguments>
